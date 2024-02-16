@@ -35,6 +35,7 @@ const ResetPasswordForm = ({ email, otp }) => {
         <input
           type="password"
           value={newPassword}
+          placeholder="Enter Your Password Here"
           onChange={(e) => setNewPassword(e.target.value)}
           required
         />
@@ -44,6 +45,7 @@ const ResetPasswordForm = ({ email, otp }) => {
         <input
           type="password"
           value={confirmPassword}
+          placeholder ="Confirm Your Password Please"
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
