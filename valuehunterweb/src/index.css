@@ -23,6 +23,7 @@ body {
 h1 {
   color: #333;
   font-size: 24px;
+  margin-bottom: 20px; /* Başlık altına biraz boşluk bırakmak için */
 }
 
 /* Linklerin stil tanımları */
@@ -37,7 +38,9 @@ a:hover {
 
 /* Buton stilleri */
 button {
-  padding: 10px 20px;
+  width: 100%; /* Button'ı textbox ve header ile aynı genişlikte yapar */
+  margin-top: 10px; /* Textbox'ın altında biraz boşluk bırakmak için */
+  padding: 10px;
   background-color: #007bff;
   color: #fff;
   border: none;

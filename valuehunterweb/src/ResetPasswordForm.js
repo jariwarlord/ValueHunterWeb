@@ -32,6 +32,7 @@ const ResetPasswordForm = ({ email, otp }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <label>Old Password:</label>
         <label>New Password:</label>
         <br></br>
         <input
