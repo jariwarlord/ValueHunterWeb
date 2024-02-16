@@ -1,10 +1,10 @@
-// ResetPasswordPage.js
+// ResetPassword.js
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ResetPasswordForm from './ResetPasswordForm';
 import './ResetPassword.css';
 
-const ResetPasswordPage = () => {
+const ResetPassword = () => {
   const { email, otp } = useParams();
 
   return (
@@ -15,4 +15,4 @@ const ResetPasswordPage = () => {
   );
 };
 
-export default ResetPasswordPage;
+export default ResetPassword;
