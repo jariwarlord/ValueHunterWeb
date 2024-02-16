@@ -1,7 +1,7 @@
 // ResetPasswordForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import './ResetPasswordForm.css'; // Bu dosya içe aktarıldı
+// import './ResetPasswordForm.css'; // Bu dosya içe aktarıldı
 
 const ResetPasswordForm = ({ email, otp }) => {
   const [newPassword, setNewPassword] = useState('');

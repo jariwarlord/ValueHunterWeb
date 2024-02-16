@@ -5,12 +5,18 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 400px; /* Formun maksimum genişliği */
+  width: 100%;
   padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 /* Başlık stilleri */
@@ -46,19 +52,22 @@ button:hover {
 /* Form stilleri */
 input[type="text"],
 input[type="password"] {
-  width: 100%;
+  width: calc(100% - 22px); /* Paddingler dahil olacak şekilde genişlik hesaplanıyor */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
+.error,
+.success {
+  margin-top: 5px;
+}
+
 .error {
   color: red;
-  margin-top: 5px;
 }
 
 .success {
   color: green;
-  margin-top: 5px;
 }
