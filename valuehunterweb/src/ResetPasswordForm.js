@@ -1,6 +1,7 @@
 // ResetPasswordForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import {EyeInvisibleOutlined, EyeOutlined} from '@ant-design/icons'
 // import './ResetPasswordForm.css'; // Bu dosya içe aktarıldı
 
 const ResetPasswordForm = ({ email, otp }) => {
@@ -8,6 +9,7 @@ const ResetPasswordForm = ({ email, otp }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [visible, setVisible] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,7 +35,7 @@ const ResetPasswordForm = ({ email, otp }) => {
         <label>New Password:</label>
         <br></br>
         <input
-          type="password"
+          type={visible ? "text" : "password"}
           value={newPassword}
           placeholder="Enter Your Password Here"
           onChange={(e) => setNewPassword(e.target.value)}
@@ -43,12 +45,16 @@ const ResetPasswordForm = ({ email, otp }) => {
         <label>Confirm Password:</label>
         <br></br>
         <input
-          type="password"
+          type={visible ? "text" : "password"}
           value={confirmPassword}
           placeholder ="Confirm Your Password Please"
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
+          
         />
+        <div onClick={()=>setVisible(!visible)}>
+          {visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
+        </div>
         {error && <p className="error">{error}</p>}
         {successMessage && <p className="success">{successMessage}</p>}
         <br></br>
