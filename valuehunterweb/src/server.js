@@ -1,7 +1,8 @@
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-
+//cc1UbCOG9sNEoxiP
 app.use(bodyParser.json());
 
 app.post('/reset-password',(req,res) => { 
