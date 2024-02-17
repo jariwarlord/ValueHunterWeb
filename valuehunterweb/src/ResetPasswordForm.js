@@ -48,6 +48,7 @@ const ResetPasswordForm = ({ email, otp }) => {
               top: '50%',
               transform: 'translateY(-50%)',
               cursor: 'pointer'
+              
             }}
             onClick={() => setVisible(!visible)}
           >

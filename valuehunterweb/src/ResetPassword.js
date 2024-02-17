@@ -9,7 +9,7 @@ const ResetPassword = () => {
 
   return (
     <div>
-      <h2>Reset Password</h2>
+      
       <ResetPasswordForm email={email} otp={otp} />
     </div>
   );
