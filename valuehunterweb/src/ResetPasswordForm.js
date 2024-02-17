@@ -1,4 +1,3 @@
-// ResetPasswordForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
@@ -28,6 +27,10 @@ const ResetPasswordForm = ({ email, otp }) => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setVisible(!visible);
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -44,13 +47,12 @@ const ResetPasswordForm = ({ email, otp }) => {
           <div
             style={{
               position: 'absolute',
-              right: '5px',
+              right: '10px',
               top: '50%',
-              transform: 'translateY(-50%)',
+              transform: 'translateY(-60%)',
               cursor: 'pointer'
-              
             }}
-            onClick={() => setVisible(!visible)}
+            onClick={togglePasswordVisibility}
           >
             {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </div>
@@ -68,12 +70,12 @@ const ResetPasswordForm = ({ email, otp }) => {
           <div
             style={{
               position: 'absolute',
-              right: '5px',
+              right: '10px',
               top: '50%',
-              transform: 'translateY(-50%)',
+              transform: 'translateY(-60%)',
               cursor: 'pointer'
             }}
-            onClick={() => setVisible(!visible)}
+            onClick={togglePasswordVisibility}
           >
             {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </div>
@@ -92,12 +94,12 @@ const ResetPasswordForm = ({ email, otp }) => {
           <div
             style={{
               position: 'absolute',
-              right: '5px',
+              right: '10px',
               top: '50%',
-              transform: 'translateY(-50%)',
+              transform: 'translateY(-60%)',
               cursor: 'pointer'
             }}
-            onClick={() => setVisible(!visible)}
+            onClick={togglePasswordVisibility}
           >
             {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </div>
