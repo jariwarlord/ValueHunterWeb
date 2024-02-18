@@ -8,16 +8,21 @@ const supabaseUrl = 'https://ekywywmcekckrjtpmcqv.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVreXd5d21jZWtja3JqdHBtY3F2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDgxOTk3MTEsImV4cCI6MjAyMzc3NTcxMX0.Tw0Z6GcHGbatsPYmYkDoCjcDGI4vBqIRRlCkkhPMHlY';
 const supabase = createClient(supabaseUrl, supabaseKey);
 app.use(bodyParser.json());
-
+// app.use('/',(req, res) => {
+//     const { email } = req.body;
+//     console.log(email);
+//     res.send('Geldii');
+// });
 app.post('/reset-password', async (req, res) => {
     try {
         // Extract data from the request body
-        const { email, newPassword } = req.body;
+        const { email} = req.body;
+        console.log(email);
 
         // Update the user's password in the Supabase database
         const { error } = await supabase
             .from('users')
-            .update({ password: newPassword })
+            .update({ password: '2324' })
             .eq('email', email);
 
         if (error) {
@@ -32,8 +37,9 @@ app.post('/reset-password', async (req, res) => {
         res.status(500).json({ error: 'An error occurred while changing the password' });
     }
 });
-
+//https://pjpfzdhvwswfmuzuhdlf.supabase.co/auth/v1/verify?token=77a664546cd18cd8a69cf3c5a3dfe233e546695733f1241af94435ab&type=recovery&redirect_to=localhost:3000
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+    
 });
