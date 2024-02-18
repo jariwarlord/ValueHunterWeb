@@ -10,7 +10,11 @@ const ResetPasswordForm = ({ email, otp }) => {
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [visible, setVisible] = useState(true);
-
+  const passwordRecommendationMessage = (
+    <p className="password-recommendation">
+      For security purposes, we recommend creating a strong password that includes at least 12 characters with a combination of uppercase letters, lowercase letters, numbers, and special characters.
+    </p>
+  );
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -109,6 +113,7 @@ const ResetPasswordForm = ({ email, otp }) => {
         {error && <p className="error">{error}</p>}
         {successMessage && <p className="success">{successMessage}</p>}
         <br />
+        {passwordRecommendationMessage}
         <button type="submit">Reset Password</button>
         <PasswordStrengthMeter password={newPassword} setNewPassword={setNewPassword} />
 
