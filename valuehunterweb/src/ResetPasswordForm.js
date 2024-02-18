@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
+import PasswordStrengthMeter from './PasswordStr';
 
 const ResetPasswordForm = ({ email, otp }) => {
   const [newPassword, setNewPassword] = useState('');
@@ -109,6 +110,8 @@ const ResetPasswordForm = ({ email, otp }) => {
         {successMessage && <p className="success">{successMessage}</p>}
         <br />
         <button type="submit">Reset Password</button>
+        <PasswordStrengthMeter password={newPassword} setNewPassword={setNewPassword} />
+
       </form>
     </div>
   );

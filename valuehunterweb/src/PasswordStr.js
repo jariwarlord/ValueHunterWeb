@@ -1,10 +1,12 @@
+import React from 'react';
+
 const PasswordStrengthMeter = ({ password }) => {
   const calculateStrength = (password) => {
     // Güçlük hesaplama algoritması buraya gelecek
     // Örneğin, uzunluk ve karakter çeşitliliği değerlendirilebilir
     // Burada sadece bir örnek verilecek, gerçek bir algoritma kullanılmalıdır
     const minLength = 8;
-    const minVariety = 3; // minimum karakter çeşitliliği
+    const minVariety = 6; // minimum karakter çeşitliliği
     const lengthScore = Math.min(password.length / minLength, 1) * 100;
     const varietyScore = new Set(password).size >= minVariety ? 100 : 0;
     const totalScore = (lengthScore + varietyScore) / 2;
