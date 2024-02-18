@@ -8,7 +8,9 @@ const ResetPasswordForm = ({ email, otp }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [visible, setVisible] = useState(true);
+  const [visibleNew, setVisibleNew] = useState(true);
+  const [visibleOld, setVisibleOld] = useState(true);
+  const [visibleConfirm, setVisibleConfirm] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,8 +30,16 @@ const ResetPasswordForm = ({ email, otp }) => {
     }
   };
 
-  const togglePasswordVisibility = () => {
-    setVisible(!visible);
+  const togglePasswordVisibilityNew = () => {
+    setVisibleNew(!visibleNew);
+  };
+
+  const togglePasswordVisibilityOld = () => {
+    setVisibleOld(!visibleOld);
+  };
+
+  const togglePasswordVisibilityConfirm = () => {
+    setVisibleConfirm(!visibleConfirm);
   };
 
   return (
@@ -39,7 +49,7 @@ const ResetPasswordForm = ({ email, otp }) => {
         <br />
         <div style={{ position: 'relative' }}>
           <input
-            type={visible ? "text" : "password"}
+            type={visibleOld ? "text" : "password"}
             value={oldPassword}
             placeholder="Enter Your Current Password Here"
             onChange={(e) => setOldPassword(e.target.value)}
@@ -53,16 +63,16 @@ const ResetPasswordForm = ({ email, otp }) => {
               transform: 'translateY(-60%)',
               cursor: 'pointer'
             }}
-            onClick={togglePasswordVisibility}
+            onClick={togglePasswordVisibilityOld}
           >
-            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+            {visibleOld ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </div>
         </div>
         <label>New Password:</label>
         <br />
         <div style={{ position: 'relative' }}>
           <input
-            type={visible ? "text" : "password"}
+            type={visibleNew ? "text" : "password"}
             value={newPassword}
             placeholder="Enter Your Password Here"
             onChange={(e) => setNewPassword(e.target.value)}
@@ -76,9 +86,9 @@ const ResetPasswordForm = ({ email, otp }) => {
               transform: 'translateY(-60%)',
               cursor: 'pointer'
             }}
-            onClick={togglePasswordVisibility}
+            onClick={togglePasswordVisibilityNew}
           >
-            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+            {visibleNew ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </div>
         </div>
         <br />
@@ -86,7 +96,7 @@ const ResetPasswordForm = ({ email, otp }) => {
         <br />
         <div style={{ position: 'relative' }}>
           <input
-            type={visible ? "text" : "password"}
+            type={visibleConfirm ? "text" : "password"}
             value={confirmPassword}
             placeholder="Confirm Your Password Please"
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -100,9 +110,9 @@ const ResetPasswordForm = ({ email, otp }) => {
               transform: 'translateY(-60%)',
               cursor: 'pointer'
             }}
-            onClick={togglePasswordVisibility}
+            onClick={togglePasswordVisibilityConfirm}
           >
-            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+            {visibleConfirm ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </div>
         </div>
         {error && <p className="error">{error}</p>}
