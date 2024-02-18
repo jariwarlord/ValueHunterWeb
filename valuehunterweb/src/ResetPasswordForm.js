@@ -4,6 +4,7 @@ import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 
 const ResetPasswordForm = ({ email, otp }) => {
   const [newPassword, setNewPassword] = useState('');
+  const [oldPassword, setOldPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -39,9 +40,9 @@ const ResetPasswordForm = ({ email, otp }) => {
         <div style={{ position: 'relative' }}>
           <input
             type={visible ? "text" : "password"}
-            value={newPassword}
+            value={oldPassword}
             placeholder="Enter Your Current Password Here"
-            onChange={(e) => setNewPassword(e.target.value)}
+            onChange={(e) => setOldPassword(e.target.value)}
             required
           />
           <div
