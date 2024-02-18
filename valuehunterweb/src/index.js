@@ -6,18 +6,18 @@ import reportWebVitals from './reportWebVitals';
 
 // index.js dosyası
 
-const supabase = require('./supabase');
+// const supabase = require('./supabase');
 
 // supabase nesnesini kullanarak Supabase ile iletişim kurabilirsiniz
-supabase
-  .from('tablo_adi')
-  .select('*')
-  .then(response => {
-    console.log('Veri tabanından gelen veri:', response.data);
-  })
-  .catch(error => {
-    console.error('Hata:', error);
-  });
+// supabase
+//   .from('tablo_adi')
+//   .select('*')
+//   .then(response => {
+//     console.log('Veri tabanından gelen veri:', response.data);
+//   })
+//   .catch(error => {
+//     console.error('Hata:', error);
+//   });
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
