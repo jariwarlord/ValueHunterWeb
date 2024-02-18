@@ -8,21 +8,22 @@ const supabaseUrl = 'https://ekywywmcekckrjtpmcqv.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVreXd5d21jZWtja3JqdHBtY3F2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDgxOTk3MTEsImV4cCI6MjAyMzc3NTcxMX0.Tw0Z6GcHGbatsPYmYkDoCjcDGI4vBqIRRlCkkhPMHlY';
 const supabase = createClient(supabaseUrl, supabaseKey);
 app.use(bodyParser.json());
-// app.use('/',(req, res) => {
-//     const { email } = req.body;
-//     console.log(email);
-//     res.send('Geldii');
-// });
+app.get('/', (req, res) => {
+    const token = req.query.accessToken;
+    console.log(token);
+    res.status(200).send('Token received: ' + token);
+});
+
 app.post('/reset-password', async (req, res) => {
     try {
         // Extract data from the request body
-        const { email} = req.body;
-        console.log(email);
+        const { email, newPassword } = req.body;
+        
 
         // Update the user's password in the Supabase database
         const { error } = await supabase
             .from('users')
-            .update({ password: '2324' })
+            .update({ password: newPassword })
             .eq('email', email);
 
         if (error) {

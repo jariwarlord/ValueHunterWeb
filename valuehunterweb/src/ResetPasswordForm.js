@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
+import { supabase } from './supabaseClient'; // Supabase client'ı import et
 import PasswordStrengthMeter from './PasswordStr';
 import PwRecMsg from './PwRecMsg';
 
 const ResetPasswordForm = ({ email, otp }) => {
   const [newPassword, setNewPassword] = useState('');
-  const [oldPassword, setOldPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [visible, setVisible] = useState(true);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -18,14 +19,16 @@ const ResetPasswordForm = ({ email, otp }) => {
         setError('Passwords do not match.');
         return;
       }
-      const response = await axios.post('/reset-password', {
-        email,
-        otp,
-        newPassword,
-      });
-      setSuccessMessage(response.data.message);
+
+      // Reset password for email
+      const { error } = await supabase.auth.resetPasswordForEmail(email);
+      if (error) {
+        throw new Error('Error sending password reset email');
+      }
+
+      setSuccessMessage('Password reset email sent successfully!');
     } catch (error) {
-      setError(error.response.data.error);
+      setError(error.message);
     }
   };
 
@@ -36,29 +39,6 @@ const ResetPasswordForm = ({ email, otp }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>Old Password:</label>
-        <br />
-        <div style={{ position: 'relative' }}>
-          <input
-            type={visible ? "text" : "password"}
-            value={oldPassword}
-            placeholder="Enter Your Current Password Here"
-            onChange={(e) => setOldPassword(e.target.value)}
-            required
-          />
-          <div
-            style={{
-              position: 'absolute',
-              right: '10px',
-              top: '50%',
-              transform: 'translateY(-60%)',
-              cursor: 'pointer'
-            }}
-            onClick={togglePasswordVisibility}
-          >
-            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
-          </div>
-        </div>
         <label>New Password:</label>
         <br />
         <div style={{ position: 'relative' }}>
@@ -112,7 +92,6 @@ const ResetPasswordForm = ({ email, otp }) => {
         <PwRecMsg/>
         <button type="submit">Reset Password</button>
         <PasswordStrengthMeter password={newPassword} setNewPassword={setNewPassword} />
-
       </form>
     </div>
   );
