@@ -22,8 +22,8 @@ function PasswordResetForm() {
 
     return () => {
       // Clean up listener
-      if (authListener) {
-        authListener.data.unsubscribe();
+      if (authListener && authListener.subscription) {
+        authListener.subscription.unsubscribe();
       }
     };
   }, [authListener]);
@@ -37,7 +37,6 @@ function PasswordResetForm() {
 
       if (error) {
         setError(error.message);
-        console.log("Hatalı!")
       } else {
         setSuccessMessage("Password updated successfully!");
       }
