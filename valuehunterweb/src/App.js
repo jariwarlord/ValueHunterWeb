@@ -1,10 +1,11 @@
-import ResetPassword from './ResetPassword';
+import React from 'react';
+import PasswordResetForm from './PasswordResetForm'; // Import the password reset form component
 
-function App(){
+function App() {
   return (
     <div className="App">
-    <h1>Reset Your Password</h1>
-    <ResetPassword/>
+      <h1>Password Reset Application</h1>
+      <PasswordResetForm /> {/* Render the password reset form */}
     </div>
   );
 }
