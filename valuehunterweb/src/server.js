@@ -8,23 +8,17 @@ const supabaseUrl = 'https://ekywywmcekckrjtpmcqv.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVreXd5d21jZWtja3JqdHBtY3F2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDgxOTk3MTEsImV4cCI6MjAyMzc3NTcxMX0.Tw0Z6GcHGbatsPYmYkDoCjcDGI4vBqIRRlCkkhPMHlY';
 const supabase = createClient(supabaseUrl, supabaseKey);
 app.use(bodyParser.json());
-<<<<<<< HEAD
 app.get('/', (req, res) => {
     const token = req.query.accessToken;
     console.log(token);
     res.status(200).send('Token received: ' + token);
 });
-=======
->>>>>>> parent of 9c29379 (server probs)
 
 app.post('/reset-password', async (req, res) => {
     try {
         // Extract data from the request body
         const { email, newPassword } = req.body;
-<<<<<<< HEAD
         
-=======
->>>>>>> parent of 9c29379 (server probs)
 
         // Update the user's password in the Supabase database
         const { error } = await supabase
@@ -44,10 +38,6 @@ app.post('/reset-password', async (req, res) => {
         res.status(500).json({ error: 'An error occurred while changing the password' });
     }
 });
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of 9c29379 (server probs)
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
