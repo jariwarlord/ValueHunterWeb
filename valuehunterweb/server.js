@@ -13,5 +13,5 @@ app.get('*', (req, res) => {
 // Sunucuyu belirli bir portta başlatır
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Sunucu çalışıyor, port: ${PORT}`);
+  console.log(`Express çalışıyor, port: ${PORT}`);
 });

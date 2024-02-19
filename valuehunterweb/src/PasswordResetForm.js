@@ -37,6 +37,7 @@ function PasswordResetForm() {
 
       if (error) {
         setError(error.message);
+        console.log("Hatalı!")
       } else {
         setSuccessMessage("Password updated successfully!");
       }
@@ -47,7 +48,7 @@ function PasswordResetForm() {
 
   return (
     <div>
-      <h2>Password Reset Form</h2>
+      
       {resetTokens ? (
         <>
           <input
