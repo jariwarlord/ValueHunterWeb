@@ -6,8 +6,8 @@ function App() {
   return (
     
     <div className="App">
-      <Navbar/>
-      <h1 style={{width:"80px"}}>Password Reset Form</h1>
+      <Navbar></Navbar>
+      <h1>Password Reset Form</h1>
       <PasswordResetForm /> {/* Render the password reset form */}
     </div>
   );

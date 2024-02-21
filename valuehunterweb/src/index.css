@@ -24,6 +24,10 @@ h1 {
   color: #333;
   font-size: 24px;
   margin-bottom: 20px; /* Başlık altına biraz boşluk bırakmak için */
+  font-size: 24px;
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* Linklerin stil tanımları */
